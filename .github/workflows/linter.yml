@@ -1,0 +1,12 @@
+name: "Linter"
+on:
+  workflow_call:
+
+jobs:
+  super-linter:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo linter
+        run: |
+          echo "This script belongs oncall workflow repository"
