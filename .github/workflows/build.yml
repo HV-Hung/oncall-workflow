@@ -1,10 +1,20 @@
 name: "Build"
 on:
   workflow_dispatch:
+    inputs:
+      linter:
+        description: "Linter"
+        required: true
+        default: "./.github/workflows/linter.yml"
   workflow_call:
+    inputs:
+      linter:
+        description: "Linter"
+        required: true
+        default: "./.github/workflows/linter.yml"
 
 jobs:
   lint:
     name: Lint
-    uses: ./.github/workflows/linter.yml
+    uses: ${{ inputs.linter }}
   
