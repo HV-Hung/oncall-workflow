@@ -19,5 +19,7 @@ jobs:
           echo "The event that triggered this workflow is: $EVENT_NAME"
           EVENT_NAME_TYEP=${{ github.event.action || 'N/A' }}
           echo "The event type that triggered this workflow is: $EVENT_NAME_TYEP"
+      - name: echo current base ref
+        run: echo "The current base ref is ${{ github.event.pull_request.base.ref || 'N/A' }}"
       - name: Show full changes field
         run: echo '${{ toJson(github.event.changes) }}'
