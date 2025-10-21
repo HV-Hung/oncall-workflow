@@ -1,0 +1,18 @@
+name: "Echo Event"
+on:
+  workflow_call:
+  push:
+  pull_request:
+
+
+jobs:
+  super-linter:
+    name: Echo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo event
+        run: |
+          EVENT_NAME=${{ github.event_name }}
+          echo "The event that triggered this workflow is: $EVENT_NAME"
+          EVENT_NAME_TYEP=${{ github.event.action || 'N/A' }}
+          echo "The event type that triggered this workflow is: $EVENT_NAME_TYEP"
